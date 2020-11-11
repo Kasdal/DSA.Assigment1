@@ -1,16 +1,17 @@
 public class FloorList {
 
     FloorNode head = null;
-    public void add(Floor f){
-
+    public void add(Floor f)
+    {
         FloorNode fnode = new FloorNode();
 
         fnode.setContents(f);
         fnode.next = head;
         head = fnode;
-
     }
-    public String printList(){
+
+    public String printList()
+    {
         String FullList = "List of all the floors \n";
         FloorNode fnode = head;
         int counter = 0;
@@ -22,9 +23,11 @@ public class FloorList {
         return FullList;
     }
 
-    public Floor findFloorById(String id){
+    public Floor findFloorById(String id)
+    {
         FloorNode fnode = head;
-        while(fnode != null){
+        while(fnode != null)
+        {
             if(fnode.getContents().floorLevel.equalsIgnoreCase(id)){
                 return fnode.getContents();
             }
@@ -37,20 +40,24 @@ public class FloorList {
      * Prints the aisle list by traversing through the list of floors and getting the contents
      * @return
      */
-    public String printAisleList(){
+    public String printAisleList()
+    {
         String aisleList = "per floor ";
         FloorNode fnode = head;
-        while(fnode != null){
+        while(fnode != null)
+        {
             aisleList += "floor" +fnode.getContents().floorId + "\n\t" + fnode.getContents().aisles.printList();
             fnode = fnode.next;
         }
         return aisleList;
     }
 
-    public void removeFloor(Floor floorToDel){
+    public void removeFloor(Floor floorToDel)
+    {
         boolean done = false;
         FloorNode fnode = head;
-        if (floorToDel.equals(fnode)){
+        if (floorToDel.equals(fnode))
+        {
             head = fnode.next;
             done = true;
 
@@ -72,27 +79,33 @@ public class FloorList {
 
     }
 
-    public void removeFloorAt(int element) {
+    public void removeFloorAt(int element)
+    {
         FloorNode temp = head;
         int i = 0;
-        if(element == 0){
+        if(element == 0)
+        {
             head = temp.next;
         }
         else {
-            while (i < element - 1 && temp != null) { //Get to the 4th Node
+            while (i < element - 1 && temp != null)
+            {
                 temp = temp.next;
                 i++;
             }
-            if (temp != null && temp.next != null) {
+            if (temp != null && temp.next != null)
+            {
                 temp.next = temp.next.next;
             }
         }
     }
 
-    public int size(){
+    public int size()
+    {
         int counter = 0;
         FloorNode fnode = head;
-        while(fnode !=null){
+        while(fnode !=null)
+        {
             counter++;
             fnode = fnode.next;
         }

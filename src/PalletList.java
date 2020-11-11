@@ -1,7 +1,8 @@
 public class PalletList {
 
     PalletNode head = null;
-    public void add(Pallet p){
+    public void add(Pallet p)
+    {
 
         PalletNode pnode = new PalletNode();
 
@@ -11,18 +12,22 @@ public class PalletList {
 
     }
 
-    public void removePalletAt(int element) {
+    public void removePalletAt(int element)
+    {
         PalletNode temp = head;
         int i = 0;
-        if(element == 0){
+        if(element == 0)
+        {
             head = temp.next;
         }
         else {
-            while (i < element - 1 && temp != null) {
+            while (i < element - 1 && temp != null)
+            {
                 temp = temp.next;
                 i++;
             }
-            if (temp != null && temp.next != null) {
+            if (temp != null && temp.next != null)
+            {
                 temp.next = temp.next.next;
             }
         }

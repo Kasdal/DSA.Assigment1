@@ -18,7 +18,8 @@ public class Main {
     /**
      * Menu Controller Constructor
      */
-    private Main() {
+    private Main()
+    {
         input = new Scanner(System.in);
     }
 
@@ -28,12 +29,12 @@ public class Main {
      * @param args Starts the Main Class with menu options.
      */
 
-    public static void main(String[]args){
-
+    public static void main(String[]args)
+    {
         Main app = new Main();
         app.runMenu();
-
     }
+
     void runMenu(){
         int option = startMenu();
         while (option != 0) {
@@ -48,7 +49,7 @@ public class Main {
                  addShelf();
                  break;
              case 4:
-                 aadPallet();
+                 addPallet();
                  break;
              case 5:
                  listFloors();
@@ -121,12 +122,14 @@ public class Main {
         int option = 0;
         try {
             option = input.nextInt();
-        } catch (InputMismatchException e) {
+        } catch (InputMismatchException e)
+        {
             System.out.println("Input was not a number please try again");
             input.next();
             startMenu();
         }
-        if ((option >= 0) && (option <= 13)) {
+        if ((option >= 0) && (option <= 13))
+        {
             return option;
         } else {
             System.out.println("Invalid Index selected. Please Try again");
@@ -155,12 +158,14 @@ public class Main {
         int option = 0;
         try {
             option = input.nextInt();
-        } catch (InputMismatchException e) {
+        } catch (InputMismatchException e)
+        {
             System.out.println("Input was not a number please try again");
             input.next();
             startMenu();
         }
-        if ((option >= 0) && (option <= 5)) {
+        if ((option >= 0) && (option <= 5))
+        {
             return option;
         } else {
             System.out.println("Invalid Index selected. Please Try again");
@@ -172,7 +177,8 @@ public class Main {
      * Method to add a floor
      *requires input from user and preforms actions based on the input
      */
-    public void addFloor(){
+    public void addFloor()
+    {
         System.out.println("Please enter the floor level");
         String level = input.next();
         System.out.println("Please enter the floor Id");
@@ -189,7 +195,8 @@ public class Main {
 
     public void addAisle(){
         Floor floorFound = findFloor();
-        if(floorFound !=null){
+        if(floorFound !=null)
+        {
             System.out.println("Enter the length of the aisle by the number of pallets it can store.");
             int aisleD = input.nextInt();
             System.out.println("Enter the width of the aisle by the number of pallets it can store.");
@@ -202,14 +209,17 @@ public class Main {
 
     }
 
-    public void addShelf(){
+    public void addShelf()
+    {
         Floor floorFound = findFloor();
-        if(floorFound != null){
+        if(floorFound != null)
+        {
             System.out.println(floorFound.aisles.printList());
             System.out.println("Chose the Aisle Id");
             String Id = input.next();
             Aisle aisleFound = floorFound.aisles.aisleID(Id);
-            if (aisleFound !=null){
+            if (aisleFound !=null)
+            {
                 System.out.println("Enter the Shelf number: ");
                 int shelfNum = input.nextInt();
                 Shelf s = new Shelf(shelfNum);
@@ -223,17 +233,17 @@ public class Main {
     }
 
 
-    public void aadPallet(){
+    public void addPallet()
+    {
         Floor floorFound = findFloor();
         if(floorFound !=null);
         Aisle aisleFound = findAisle();
         if(aisleFound != null);
         Shelf shelfFound = findShelf();
-        if(shelfFound !=null){
-
+        if(shelfFound !=null)
+        {
 
         }
-
     }
 
 
@@ -241,7 +251,8 @@ public class Main {
      * Method to find the floor
      * @return floor
      */
-    public Floor findFloor(){
+    public Floor findFloor()
+    {
     System.out.println("Chose the floor by Id: ");
     System.out.println(floors.printList());
     String Id = input.next();
@@ -254,7 +265,8 @@ public class Main {
      * Method to find an aisle
      * @return aisle
      */
-    public Aisle findAisle(){
+    public Aisle findAisle()
+    {
         Floor floorFound = findFloor();
     System.out.println(floorFound.aisles.printList());
     System.out.println("Chose the Aisle Id");
@@ -277,17 +289,19 @@ public Shelf findShelf(){
 }
 
 
-    public void listFloors(){
+    public void listFloors()
+    {
         System.out.println("Current list of floors are: \n" + floors.printList());
     }
 
-    public void listAisles(){
+    public void listAisles()
+    {
         System.out.println("Current list of aisles are: " + floors.printAisleList());
     }
 
-    public void listShelves(){
+    public void listShelves()
+    {
         System.out.println("Current list of shelves are: \n" + floors + aisles + shelves.printList());
-
     }
 
     /**
@@ -295,7 +309,8 @@ public Shelf findShelf(){
      * lists the floors, waits for user input
      * prints the list of floors after the process
      */
-    public void removeFloor() {
+    public void removeFloor()
+    {
         if (floors.size() > 0) {
             listFloors();
             System.out.println("Enter the floor index: ");

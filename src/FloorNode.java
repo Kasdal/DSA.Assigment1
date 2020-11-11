@@ -8,14 +8,16 @@ public class FloorNode {
      * Gets the contents of the node.
      * @return
      */
-    public Floor getContents(){
+    public Floor getContents()
+    {
         return contents;}
 
     /**
      * Sets the contents of the node.
      * @param f
      */
-    public void setContents(Floor f) {
+    public void setContents(Floor f)
+    {
         contents=f;
     }
 

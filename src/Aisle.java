@@ -4,7 +4,8 @@ public class Aisle {
      * Gets Aisle Id
      * @return
      */
-    public String getAisleId() {
+    public String getAisleId()
+    {
         return aisleId;
     }
 
@@ -12,7 +13,8 @@ public class Aisle {
      * Sets Aisle Id
      * @param aisleId
      */
-    public void setAisleId(String aisleId) {
+    public void setAisleId(String aisleId)
+    {
         this.aisleId = aisleId;
     }
 
@@ -20,7 +22,8 @@ public class Aisle {
      * Gets aisle width
      * @return
      */
-    public int getAisleWidth() {
+    public int getAisleWidth()
+    {
         return aisleWidth;
     }
 
@@ -28,7 +31,8 @@ public class Aisle {
      * Sets aisle width
      * @param aisleWidth
      */
-    public void setAisleWidth(int aisleWidth) {
+    public void setAisleWidth(int aisleWidth)
+    {
         this.aisleWidth = aisleWidth;
     }
 
@@ -36,7 +40,8 @@ public class Aisle {
      * Gets aisle depth
      * @return
      */
-    public int getAisleDepth() {
+    public int getAisleDepth()
+    {
         return aisleDepth;
     }
 
@@ -44,7 +49,8 @@ public class Aisle {
      * sets aisle depth
      * @param aisleDepth
      */
-    public void setAisleDepth(int aisleDepth) {
+    public void setAisleDepth(int aisleDepth)
+    {
         this.aisleDepth = aisleDepth;
     }
 
@@ -61,7 +67,8 @@ public class Aisle {
      * Method to add a shelf.
      * @param s
      */
-    public void addshelf(Shelf s){
+    public void addshelf(Shelf s)
+    {
         shelves.add(s);
     }
 
@@ -71,7 +78,8 @@ public class Aisle {
      * @param aisleD
      * @param aisleW
      */
-    Aisle(String aI, int aisleD, int aisleW){
+    Aisle(String aI, int aisleD, int aisleW)
+    {
 
         aisleId = aI;
         aisleDepth = aisleD;
@@ -79,7 +87,8 @@ public class Aisle {
         shelves = new ShelfList();
     }
 
-    public String toString(){
+    public String toString()
+    {
 
         return "The Aisle details are: " + "Aisle ID: "+ aisleId  + "\n" + "Aisle Depth:" +  aisleDepth + " Aisle Width:" + aisleWidth +  "\n";
     }

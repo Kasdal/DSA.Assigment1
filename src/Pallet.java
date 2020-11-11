@@ -3,7 +3,8 @@ public class Pallet {
      * Description getter
      * @return description of the goods on pallet
      */
-    public String getDescription() {
+    public String getDescription()
+    {
         return description;
     }
 
@@ -11,7 +12,8 @@ public class Pallet {
      * Sets the description
      * @param description
      */
-    public void setDescription(String description) {
+    public void setDescription(String description)
+    {
         this.description = description;
     }
 
@@ -19,7 +21,8 @@ public class Pallet {
      * Gets the item quantity
      * @return item quantity on pallet
      */
-    public int getItemQuantity() {
+    public int getItemQuantity()
+    {
         return itemQuantity;
     }
 
@@ -27,7 +30,8 @@ public class Pallet {
      * Sets the item quantity
      * @param itemQuantity
      */
-    public void setItemQuantity(int itemQuantity) {
+    public void setItemQuantity(int itemQuantity)
+    {
         this.itemQuantity = itemQuantity;
     }
 
@@ -35,7 +39,8 @@ public class Pallet {
      * Gets the temp range
      * @return temp range
      */
-    public double getTempRange() {
+    public double getTempRange()
+    {
         return tempRange;
     }
 
@@ -43,7 +48,8 @@ public class Pallet {
      * Sets temp range
      * @param tempRange
      */
-    public void setTempRange(double tempRange) {
+    public void setTempRange(double tempRange)
+    {
         this.tempRange = tempRange;
     }
 
@@ -51,7 +57,8 @@ public class Pallet {
      * Gets the pallet position
      * @return pallet position
      */
-    public int getPosition() {
+    public int getPosition()
+    {
         return position;
     }
 
@@ -59,7 +66,8 @@ public class Pallet {
      * Sets the pallet position
      * @param position
      */
-    public void setPosition(int position) {
+    public void setPosition(int position)
+    {
         this.position = position;
     }
 
@@ -85,7 +93,8 @@ public class Pallet {
      * @param tRange
      * @param pos
      */
-    Pallet (String desc, int itemQ, double tRange, int pos){
+    Pallet (String desc, int itemQ, double tRange, int pos)
+    {
 
         description = desc;
         itemQuantity = itemQ;
@@ -93,7 +102,8 @@ public class Pallet {
         position = pos;
     }
 
-    public String toString(){
+    public String toString()
+    {
 
         return "The Pallet details are Pallet: " + description + ",Quantity: " + itemQuantity + ",Temperature Range:" + tempRange + ",Position:" + position + "\n";
     }

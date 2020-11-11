@@ -14,7 +14,8 @@ public class Floor {
      * Gets the floor level
      * @return
      */
-    public String getFloorLevel() {
+    public String getFloorLevel()
+    {
         return floorLevel;
     }
 
@@ -22,7 +23,8 @@ public class Floor {
      * Sets the floor level
      * @param floorLevel
      */
-    public void setFloorLevel(String floorLevel) {
+    public void setFloorLevel(String floorLevel)
+    {
         this.floorLevel = floorLevel;
     }
 
@@ -30,7 +32,8 @@ public class Floor {
      * Gets floor security
      * @return floor security
      */
-    public String getFloorSecurity() {
+    public String getFloorSecurity()
+    {
         return floorSecurity;
     }
 
@@ -39,7 +42,8 @@ public class Floor {
      * @param floorSecurity
      */
 //Add validation here to allow high, med and low.
-    public void setFloorSecurity(String floorSecurity) {
+    public void setFloorSecurity(String floorSecurity)
+    {
         this.floorSecurity = floorSecurity;
     }
 
@@ -47,7 +51,8 @@ public class Floor {
      * Gets floor temp
      * @return floor temp
      */
-    public double getFloorTemperature() {
+    public double getFloorTemperature()
+    {
         return floorTemperature;
     }
 
@@ -55,7 +60,8 @@ public class Floor {
      * Sets floor temp
      * @param floorTemperature
      */
-    public void setFloorTemperature(double floorTemperature) {
+    public void setFloorTemperature(double floorTemperature)
+    {
         this.floorTemperature = floorTemperature;
     }
 
@@ -63,7 +69,8 @@ public class Floor {
      * Method to add a aisle
      * @param a
      */
-    public void addaisle(Aisle a){
+    public void addaisle(Aisle a)
+    {
         aisles.add(a);
     }
 
@@ -73,8 +80,8 @@ public class Floor {
      * @param fSec
      * @param fTemp
      */
-    Floor (String fLevel,String floorId, String fSec, double fTemp){
-
+    Floor (String fLevel,String floorId, String fSec, double fTemp)
+    {
         floorLevel = fLevel;
         this.floorId = floorId;
         floorSecurity = fSec;
@@ -84,8 +91,8 @@ public class Floor {
 
 
 
-    public String toString(){
-
+    public String toString()
+    {
         return "The Floor details are Floor level: " + floorLevel + ", Floor Security: " + floorSecurity + ", Floor Temperature:" + floorTemperature + "\n";
     }
 
