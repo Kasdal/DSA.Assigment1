@@ -14,13 +14,17 @@ public class AisleList {
 
     public Aisle aisleID(String Id) {
         if (head == null) {
-            System.out.println("No Aisles on the floor");
             return null;
         } else {
             AisleNode anode = head;
-            while ((anode != null) && (!anode.getContents().getAisleId().equals(aisleID(Id))))
-            anode = anode.next;
-            return aisleID(Id);
+   //         while ((anode != null) && (!anode.getContents().getAisleId().equals(Id)))
+            while(anode != null){
+                if(anode.getContents().getAisleId().equals(Id))
+                  return anode.getContents();
+                anode = anode.next;
+            }
+
+            return null;
         }
     }
 

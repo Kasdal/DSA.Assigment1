@@ -76,6 +76,7 @@ public class Aisle {
         aisleId = aI;
         aisleDepth = aisleD;
         aisleWidth = aisleW;
+        shelves = new ShelfList();
     }
 
     public String toString(){

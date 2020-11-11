@@ -86,7 +86,7 @@ public class Floor {
 
     public String toString(){
 
-        return "The Floor details are : " + floorLevel + ",Floor length: " + floorSecurity + ",Floor Temperature:" + floorTemperature + "\n";
+        return "The Floor details are Floor level: " + floorLevel + ", Floor Security: " + floorSecurity + ", Floor Temperature:" + floorTemperature + "\n";
     }
 
 

@@ -48,16 +48,16 @@ public class Main {
                  addShelf();
                  break;
              case 4:
-                 listFloors();
+                 aadPallet();
                  break;
              case 5:
-                 listAisles();
+                 listFloors();
                  break;
              case 6:
-                 listShelves();
+                 listAisles();
                  break;
              case 7:
-               removeFloor();
+               listShelves();
                 break;
              case 8:
                  int option8 = deletionMenu();
@@ -109,9 +109,9 @@ public class Main {
         System.out.println("7) List all Shelves");
         System.out.println("8) Open Delete menu");
         System.out.println("----------------------------------");
-        System.out.println("9) Remove Aisle");
-        System.out.println("11) Remove Shelf");
-        System.out.println("10) Remove Pallet");
+        System.out.println("9) ");
+        System.out.println("11) ");
+        System.out.println("10) ");
         System.out.println("----------------------------------");
         System.out.println("12) Save the file.");
         System.out.println("13) Load the file.");
@@ -188,10 +188,7 @@ public class Main {
     }
 
     public void addAisle(){
-        System.out.println("Chose the floor by Id: ");
-        System.out.println(floors.printList());
-        String Id = input.next();
-        Floor floorFound = floors.findFloorById(Id);
+        Floor floorFound = findFloor();
         if(floorFound !=null){
             System.out.println("Enter the length of the aisle by the number of pallets it can store.");
             int aisleD = input.nextInt();
@@ -211,27 +208,36 @@ public class Main {
             System.out.println(floorFound.aisles.printList());
             System.out.println("Chose the Aisle Id");
             String Id = input.next();
-            Aisle aisleFound = aisles.aisleID(Id);
+            Aisle aisleFound = floorFound.aisles.aisleID(Id);
             if (aisleFound !=null){
                 System.out.println("Enter the Shelf number: ");
                 int shelfNum = input.nextInt();
                 Shelf s = new Shelf(shelfNum);
                 aisleFound.addshelf(s);
+                System.out.println(aisleFound.shelves.printList());
 
             }
 
 
 
         }
-        // if you find the floor then show aisle list
-        //ask them to chose aisle from the list
-        //find the aisle object if found
-        //ask the user to enter shelf details
-        //add shelf to the aisle
 
     }
 
-public Floor findFloor(){
+
+    public void aadPallet(){
+        Floor floorFound = findFloor();
+        if(floorFound !=null);
+        Aisle aisleFound = findAisle();
+        if(aisleFound != null);
+
+    }
+
+    /**
+     * Method to find the floor
+     * @return floor
+     */
+    public Floor findFloor(){
     System.out.println("Chose the floor by Id: ");
     System.out.println(floors.printList());
     String Id = input.next();
@@ -240,18 +246,18 @@ public Floor findFloor(){
     return floorFound;
 }
 
-/*public Aisle findAisle(){
+    /**
+     * Method to find an aisle
+     * @return aisle
+     */
+    public Aisle findAisle(){
+        Floor floorFound = findFloor();
     System.out.println(floorFound.aisles.printList());
     System.out.println("Chose the Aisle Id");
     String Id = input.next();
     Aisle aisleFound = aisles.aisleID(Id);
-
-}*/
-
-
-
-
-
+    return aisleFound;
+}
 
 
     public void listFloors(){
@@ -267,6 +273,11 @@ public Floor findFloor(){
 
     }
 
+    /**
+     * Meothod to remove the floor
+     * lists the floors, waits for user input
+     * prints the list of floors after the process
+     */
     public void removeFloor() {
         if (floors.size() > 0) {
             listFloors();
@@ -279,3 +290,5 @@ public Floor findFloor(){
         System.out.println("\n\n");
     }
 }
+
+
