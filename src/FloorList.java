@@ -33,6 +33,10 @@ public class FloorList {
         return null;
     }
 
+    /**
+     * Prints the aisle list by traversing through the list of floors and getting the contents
+     * @return
+     */
     public String printAisleList(){
         String aisleList = "per floor ";
         FloorNode fnode = head;

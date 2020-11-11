@@ -218,8 +218,6 @@ public class Main {
 
             }
 
-
-
         }
 
     }
@@ -230,8 +228,14 @@ public class Main {
         if(floorFound !=null);
         Aisle aisleFound = findAisle();
         if(aisleFound != null);
+        Shelf shelfFound = findShelf();
+        if(shelfFound !=null){
+
+
+        }
 
     }
+
 
     /**
      * Method to find the floor
@@ -257,6 +261,19 @@ public class Main {
     String Id = input.next();
     Aisle aisleFound = aisles.aisleID(Id);
     return aisleFound;
+}
+
+public Shelf findShelf(){
+    Floor floorFound = findFloor();
+    if(floorFound !=null);
+    Aisle aisleFound = findAisle();
+    if(aisleFound != null);
+    System.out.println("Enter the Shelf number: ");
+    int shelfNum = input.nextInt();
+    Shelf shelfFound = new Shelf(shelfNum);
+    System.out.println(aisleFound.shelves.printList());
+
+    return shelfFound;
 }
 
 
