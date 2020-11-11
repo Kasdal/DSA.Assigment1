@@ -233,16 +233,16 @@ public class Main {
     }
 
 
-    public void addPallet()
-    {
+    public void addPallet(){
         Floor floorFound = findFloor();
-        if(floorFound !=null);
-        Aisle aisleFound = findAisle();
-        if(aisleFound != null);
-        Shelf shelfFound = findShelf();
-        if(shelfFound !=null)
-        {
-
+        if(floorFound !=null){
+            Aisle aisleFound = findAisle();
+            if(aisleFound != null){
+                Shelf shelfFound = findShelf();
+                if(shelfFound !=null)
+                {
+                }
+            }
         }
     }
 

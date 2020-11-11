@@ -53,23 +53,6 @@ public class Pallet {
         this.tempRange = tempRange;
     }
 
-    /**
-     * Gets the pallet position
-     * @return pallet position
-     */
-    public int getPosition()
-    {
-        return position;
-    }
-
-    /**
-     * Sets the pallet position
-     * @param position
-     */
-    public void setPosition(int position)
-    {
-        this.position = position;
-    }
 
     /**
      * Fields used in this class
@@ -77,7 +60,8 @@ public class Pallet {
     String description;
     int itemQuantity;
     double tempRange;
-    int position;
+    int positionX;
+    int positionY;
     ShelfList shelves;
 
 
@@ -91,21 +75,22 @@ public class Pallet {
      * @param desc
      * @param itemQ
      * @param tRange
-     * @param pos
+     * @param posX
      */
-    Pallet (String desc, int itemQ, double tRange, int pos)
+    Pallet (String desc, int itemQ, double tRange, int posX, int posY)
     {
 
         description = desc;
         itemQuantity = itemQ;
         tempRange = tRange;
-        position = pos;
+        positionX = posX;
+        positionY = posY;
     }
 
     public String toString()
     {
 
-        return "The Pallet details are Pallet: " + description + ",Quantity: " + itemQuantity + ",Temperature Range:" + tempRange + ",Position:" + position + "\n";
+        return "The Pallet details are Pallet: " + description + ",Quantity: " + itemQuantity + ",Temperature Range:" + tempRange + ",PositionX:" + positionX +  ",PositionY:" + positionY + "\n";
     }
 
 
