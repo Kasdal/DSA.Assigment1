@@ -39,19 +39,29 @@ public class Pallet {
      * Gets the temp range
      * @return temp range
      */
-    public double getTempRange()
+    public double getTempRangeMin()
     {
-        return tempRange;
+        return tempRangeMin;
     }
 
     /**
      * Sets temp range
-     * @param tempRange
+     * @param tempRangeMin
      */
-    public void setTempRange(double tempRange)
+    public void setTempRangeMin(double tempRangeMin)
     {
-        this.tempRange = tempRange;
+        this.tempRangeMin = tempRangeMin;
     }
+
+
+    public double getTempRangeMax() {
+        return tempRangeMax;
+    }
+
+    public void setTempRangeMax(double tempRangeMax) {
+        this.tempRangeMax = tempRangeMax;
+    }
+
 
 
     /**
@@ -59,30 +69,29 @@ public class Pallet {
      */
     String description;
     int itemQuantity;
-    double tempRange;
+    double tempRangeMin;
+    double tempRangeMax;
     int positionX;
     int positionY;
     ShelfList shelves;
-
-
-
-
-
 
 
     /**
      * Pallet constructor
      * @param desc
      * @param itemQ
-     * @param tRange
+     * @param tRangeMin
+     * @param tRangeMax
      * @param posX
+     * @param posY
      */
-    Pallet (String desc, int itemQ, double tRange, int posX, int posY)
+    Pallet (String desc, int itemQ, double tRangeMin, double tRangeMax, int posX, int posY)
     {
 
         description = desc;
         itemQuantity = itemQ;
-        tempRange = tRange;
+        tempRangeMin = tRangeMin;
+        tempRangeMax = tRangeMax;
         positionX = posX;
         positionY = posY;
     }
@@ -90,7 +99,7 @@ public class Pallet {
     public String toString()
     {
 
-        return "The Pallet details are Pallet: " + description + ",Quantity: " + itemQuantity + ",Temperature Range:" + tempRange + ",PositionX:" + positionX +  ",PositionY:" + positionY + "\n";
+        return "The Pallet details are Pallet: " + description + ",Quantity: " + itemQuantity + ",Temperature Range:" + tempRangeMin + ",PositionX:" + positionX +  ",PositionY:" + positionY + "\n";
     }
 
 

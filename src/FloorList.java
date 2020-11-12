@@ -3,35 +3,35 @@ public class FloorList {
     FloorNode head = null;
     public void add(Floor f)
     {
-        FloorNode fnode = new FloorNode();
+        FloorNode temp = new FloorNode();
 
-        fnode.setContents(f);
-        fnode.next = head;
-        head = fnode;
+        temp.setContents(f);
+        temp.next = head;
+        head = temp;
     }
 
     public String printList()
     {
         String FullList = "List of all the floors \n";
-        FloorNode fnode = head;
+        FloorNode temp = head;
         int counter = 0;
-        while(fnode !=null){
-            FullList += counter + ": " + fnode.getContents();
+        while(temp !=null){
+            FullList += counter + ": " + temp.getContents();
             counter++;
-            fnode = fnode.next;
+            temp = temp.next;
         }
         return FullList;
     }
 
     public Floor findFloorById(String id)
     {
-        FloorNode fnode = head;
-        while(fnode != null)
+        FloorNode temp = head;
+        while(temp != null)
         {
-            if(fnode.getContents().floorLevel.equalsIgnoreCase(id)){
-                return fnode.getContents();
+            if(temp.getContents().floorLevel.equalsIgnoreCase(id)){
+                return temp.getContents();
             }
-            fnode = fnode.next;
+            temp = temp.next;
         }
         return null;
     }
@@ -43,11 +43,11 @@ public class FloorList {
     public String printAisleList()
     {
         String aisleList = "per floor ";
-        FloorNode fnode = head;
-        while(fnode != null)
+        FloorNode temp = head;
+        while(temp != null)
         {
-            aisleList += "floor" +fnode.getContents().floorId + "\n\t" + fnode.getContents().aisles.printList();
-            fnode = fnode.next;
+            aisleList += "floor" +temp.getContents().floorId + "\n\t" + temp.getContents().aisles.printList();
+            temp = temp.next;
         }
         return aisleList;
     }
@@ -55,20 +55,20 @@ public class FloorList {
     public void removeFloor(Floor floorToDel)
     {
         boolean done = false;
-        FloorNode fnode = head;
-        if (floorToDel.equals(fnode))
+        FloorNode temp = head;
+        if (floorToDel.equals(temp))
         {
-            head = fnode.next;
+            head = temp.next;
             done = true;
 
         }
-        while(fnode.next != null && done == false)
+        while(temp.next != null && done == false)
         {
-            if(floorToDel.equals(fnode.next)){
-                fnode.next = fnode.next.next;
+            if(floorToDel.equals(temp.next)){
+                temp.next = temp.next.next;
                done = true;
             }
-        fnode = fnode.next;
+        temp = temp.next;
 
         }
 
@@ -103,11 +103,11 @@ public class FloorList {
     public int size()
     {
         int counter = 0;
-        FloorNode fnode = head;
-        while(fnode !=null)
+        FloorNode temp = head;
+        while(temp !=null)
         {
             counter++;
-            fnode = fnode.next;
+            temp = temp.next;
         }
         return counter;
     }

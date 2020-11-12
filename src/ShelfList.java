@@ -3,21 +3,33 @@ public class ShelfList {
     ShelfNode head = null;
     public void add(Shelf s){
 
-        ShelfNode snode = new ShelfNode();
+        ShelfNode temp = new ShelfNode();
 
-        snode.setContents(s);
-        snode.next = head;
-        head = snode;
+        temp.setContents(s);
+        temp.next = head;
+        head = temp;
 
     }
     public String printList(){
         String FullList = "List of all the shelves \n";
-        ShelfNode snode = head;
-        while(snode !=null){
-            FullList += snode.getContents();
-            snode = snode.next;
+        ShelfNode temp = head;
+        while(temp !=null){
+            FullList += temp.getContents();
+            temp = temp.next;
         }
         return FullList;
+    }
+
+    public int size()
+    {
+        int counter = 0;
+        ShelfNode temp = head;
+        while(temp !=null)
+        {
+            counter++;
+            temp = temp.next;
+        }
+        return counter;
     }
 
 

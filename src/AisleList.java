@@ -4,11 +4,11 @@ public class AisleList {
     public void add(Aisle a)
     {
 
-        AisleNode anode = new AisleNode();
+        AisleNode temp = new AisleNode();
 
-        anode.setContents(a);
-        anode.next = head;
-        head = anode;
+        temp.setContents(a);
+        temp.next = head;
+        head = temp;
 
     }
 
@@ -19,12 +19,12 @@ public class AisleList {
         {
             return null;
         } else {
-            AisleNode anode = head;
-            while(anode != null)
+            AisleNode temp = head;
+            while(temp != null)
             {
-                if(anode.getContents().getAisleId().equals(Id))
-                  return anode.getContents();
-                anode = anode.next;
+                if(temp.getContents().getAisleId().equals(Id))
+                  return temp.getContents();
+                temp = temp.next;
             }
 
             return null;
@@ -36,22 +36,22 @@ public class AisleList {
     public String printList()
     {
         String FullList = "List of all the aisles \n";
-        AisleNode anode = head;
-        while(anode !=null){
-            FullList += anode.getContents();
-            anode = anode.next;
+        AisleNode temp = head;
+        while(temp !=null){
+            FullList += temp.getContents();
+            temp = temp.next;
         }
         return FullList;
     }
 
     public int size()
     {
-        AisleNode anode = head;
+        AisleNode temp = head;
         int counter = 0;
-        while(anode !=null)
+        while(temp !=null)
         {
             counter ++;
-            anode = anode.next;
+            temp = temp.next;
         }
         return counter;
 

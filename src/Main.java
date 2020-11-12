@@ -241,6 +241,7 @@ public class Main {
                 Shelf shelfFound = findShelf();
                 if(shelfFound !=null)
                 {
+
                 }
             }
         }
@@ -288,11 +289,17 @@ public Shelf findShelf(){
     return shelfFound;
 }
 
-
+    /**
+     * Prints the current list of floors
+     */
     public void listFloors()
     {
         System.out.println("Current list of floors are: \n" + floors.printList());
     }
+
+    /**
+     * Prints the list of aisles on the current floor.
+     */
 
     public void listAisles()
     {

@@ -4,11 +4,11 @@ public class PalletList {
     public void add(Pallet p)
     {
 
-        PalletNode pnode = new PalletNode();
+        PalletNode temp = new PalletNode();
 
-        pnode.setContents(p);
-        pnode.next = head;
-        head = pnode;
+        temp.setContents(p);
+        temp.next = head;
+        head = temp;
 
     }
 
@@ -32,6 +32,31 @@ public class PalletList {
             }
         }
     }
+
+    public int size()
+    {
+        int counter = 0;
+        PalletNode temp = head;
+        while(temp !=null)
+        {
+            counter++;
+            temp = temp.next;
+        }
+        return counter;
+    }
+
+    public String printList()
+    {
+        String FullList = "List of all the pallets \n";
+        PalletNode temp = head;
+        while(temp !=null){
+            FullList += temp.getContents();
+            temp = temp.next;
+        }
+        return FullList;
+    }
+
+
 
 
 
