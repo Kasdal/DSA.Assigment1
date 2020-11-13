@@ -73,7 +73,7 @@ public class Pallet {
     double tempRangeMax;
     int positionX;
     int positionY;
-    ShelfList shelves;
+
 
 
     /**

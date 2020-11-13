@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.InputMismatchException;
 import java.awt.*;
 import java.util.Scanner;
@@ -110,7 +111,7 @@ public class Main {
         System.out.println("7) List all Shelves");
         System.out.println("8) Open Delete menu");
         System.out.println("----------------------------------");
-        System.out.println("9) ");
+        System.out.println("9) Search for goods ");
         System.out.println("11) ");
         System.out.println("10) ");
         System.out.println("----------------------------------");
@@ -234,16 +235,24 @@ public class Main {
 
 
     public void addPallet(){
-        Floor floorFound = findFloor();
-        if(floorFound !=null){
-            Aisle aisleFound = findAisle();
-            if(aisleFound != null){
-                Shelf shelfFound = findShelf();
-                if(shelfFound !=null)
-                {
-
-                }
-            }
+        Shelf shelfFound = findShelf();
+        if(shelfFound !=null)
+        {
+            System.out.println("Enter pallet description: ");
+            String description = input.next();
+            System.out.println("Enter the quantity of goods on pallet: ");
+            int quantity = input.nextInt();
+            System.out.println("Enter minimum temperature storage: ");
+            double minTempR = input.nextDouble();
+            System.out.println("Enter maximum temperature storage: ");
+            double maxTempR = input.nextDouble();
+            System.out.println("Enter the pallet row position on a shelf");
+            int posX = input.nextInt();
+            System.out.println("Enter the pallet column position on a shelf: ");
+            int posY = input.nextInt();
+            Pallet p = new Pallet(description, quantity, minTempR, maxTempR,posX, posY);
+            shelfFound.addpallete(p);
+            System.out.println(shelfFound.pallets.printList());
         }
     }
 
@@ -272,21 +281,20 @@ public class Main {
     System.out.println(floorFound.aisles.printList());
     System.out.println("Chose the Aisle Id");
     String Id = input.next();
-    Aisle aisleFound = aisles.aisleID(Id);
+    Aisle aisleFound = floorFound.aisles.aisleID(Id);
     return aisleFound;
-}
+    }
 
 public Shelf findShelf(){
-    Floor floorFound = findFloor();
-    if(floorFound !=null);
     Aisle aisleFound = findAisle();
-    if(aisleFound != null);
-    System.out.println("Enter the Shelf number: ");
-    int shelfNum = input.nextInt();
-    Shelf shelfFound = new Shelf(shelfNum);
-    System.out.println(aisleFound.shelves.printList());
-
-    return shelfFound;
+    if(aisleFound != null) {
+        System.out.println(aisleFound.shelves.printList());
+        System.out.println("Enter the Shelf number: ");
+        int shelfNum = input.nextInt();
+        Shelf shelfFound = aisleFound.shelves.findShelf(shelfNum);
+        return shelfFound;
+    }
+ return null;
 }
 
     /**

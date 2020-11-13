@@ -1,6 +1,6 @@
 public class ShelfList {
 
-    ShelfNode head = null;
+    ShelfNode head;
     public void add(Shelf s){
 
         ShelfNode temp = new ShelfNode();
@@ -32,7 +32,26 @@ public class ShelfList {
         return counter;
     }
 
+    public ShelfList() {
+        this.head = null;
+    }
 
 
+    public Shelf findShelf(int number){
+        if (head == null)
+        {
+            return null;
+        } else {
+            ShelfNode temp = head;
+            while(temp != null)
+            {
+                if(temp.getContents().shelfNumber == number)
+                    return temp.getContents();
+                temp = temp.next;
+            }
+
+            return null;
+        }
+    }
 
 }

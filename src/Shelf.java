@@ -1,7 +1,7 @@
 public class Shelf {
 
     int shelfNumber;
-    PalletList  palletes;
+    PalletList  pallets;
 
 
     Shelf(int shelfN){
@@ -15,7 +15,7 @@ public class Shelf {
      * @param p
      */
     public void addpallete(Pallet p){
-        palletes.add(p);
+        pallets.add(p);
     }
 
 
