@@ -78,14 +78,16 @@ public class Main {
              case 9:
                  try {
                      save();
-                 } catch (Exception e) {
+                 } catch (Exception e)
+                 {
                      System.err.println("Error writing to file: " + e);
                  }
                  break;
              case 10:
                  try {
                      load();
-                 } catch (Exception e) {
+                 } catch (Exception e)
+                 {
                      System.err.println("Error reading from file: " + e);
                  }
                  break;
@@ -208,7 +210,8 @@ public class Main {
         saveToFile();
     }
 
-    public void addAisle(){
+    public void addAisle()
+    {
         Floor floorFound = findFloor();
 
         if(floorFound !=null)
@@ -252,14 +255,16 @@ public class Main {
 
 
 
-    public void resetAll() {
+    public void resetAll()
+    {
         floors.clearWarehouse();
         saveToFile();
 
     }
 
 
-    public void addPallet(){
+    public void addPallet()
+    {
         Shelf shelfFound = findShelf();
         if(shelfFound !=null)
         {
@@ -285,7 +290,8 @@ public class Main {
     /**
      * Method to save the contents to a XML file.
      */
-    public void saveToFile(){
+    public void saveToFile()
+    {
         try {
             save();
         } catch (Exception e) {
@@ -306,7 +312,7 @@ public class Main {
     Floor floorFound = floors.findFloorById(Id);
 
     return floorFound;
-}
+    }
 
     /**
      * Method to find an aisle
@@ -322,9 +328,11 @@ public class Main {
     return aisleFound;
     }
 
-public Shelf findShelf(){
+public Shelf findShelf()
+    {
     Aisle aisleFound = findAisle();
-    if(aisleFound != null) {
+    if(aisleFound != null)
+    {
         System.out.println(aisleFound.shelves.printList());
         System.out.println("Enter the Shelf number: ");
         int shelfNum = input.nextInt();
@@ -332,7 +340,7 @@ public Shelf findShelf(){
         return shelfFound;
     }
  return null;
-}
+    }
 
     /**
      * Prints the current list of floors
@@ -355,7 +363,8 @@ public Shelf findShelf(){
     {
         System.out.println("Current list of shelves are: \n");
         FloorNode floorNode = floors.head;
-        while(floorNode != null){
+        while(floorNode != null)
+        {
             AisleList aisleList = floorNode.getContents().aisles;
             System.out.println(aisleList.printShelfList());
         floorNode = floorNode.next;
@@ -370,7 +379,8 @@ public Shelf findShelf(){
      */
     public void removeFloor()
     {
-        if (floors.size() > 0) {
+        if (floors.size() > 0)
+        {
             listFloors();
             System.out.println("Enter the floor index: ");
             int index = input.nextInt();

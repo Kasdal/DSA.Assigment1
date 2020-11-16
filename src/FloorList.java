@@ -28,7 +28,8 @@ public class FloorList {
         FloorNode temp = head;
         while(temp != null)
         {
-            if(temp.getContents().floorLevel.equalsIgnoreCase(id)){
+            if(temp.getContents().floorLevel.equalsIgnoreCase(id))
+            {
                 return temp.getContents();
             }
             temp = temp.next;
@@ -64,7 +65,8 @@ public class FloorList {
         }
         while(temp.next != null && done == false)
         {
-            if(floorToDel.equals(temp.next)){
+            if(floorToDel.equals(temp.next))
+            {
                 temp.next = temp.next.next;
                done = true;
             }
@@ -82,8 +84,7 @@ public class FloorList {
         if(element == 0)
         {
             head = temp.next;
-        }
-        else {
+        } else {
             while (i < element - 1 && temp != null)
             {
                 temp = temp.next;
@@ -96,7 +97,8 @@ public class FloorList {
         }
     }
 
-    public void clearSystemData() {
+    public void clearSystemData()
+    {
         FloorNode floorNode = head;
         head = null;
     }
@@ -112,7 +114,8 @@ public class FloorList {
         }
         return counter;
     }
-    public void clearWarehouse() {
+    public void clearWarehouse()
+    {
         FloorNode temp = head;
         head = null;
     }
