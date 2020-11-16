@@ -54,11 +54,13 @@ public class Pallet {
     }
 
 
-    public double getTempRangeMax() {
+    public double getTempRangeMax()
+    {
         return tempRangeMax;
     }
 
-    public void setTempRangeMax(double tempRangeMax) {
+    public void setTempRangeMax(double tempRangeMax)
+    {
         this.tempRangeMax = tempRangeMax;
     }
 

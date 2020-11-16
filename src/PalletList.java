@@ -12,6 +12,10 @@ public class PalletList {
 
     }
 
+    /**
+     * Method to remove the pallet from the list
+     * @param element
+     */
     public void removePalletAt(int element)
     {
         PalletNode temp = head;
@@ -33,6 +37,10 @@ public class PalletList {
         }
     }
 
+    /**
+     * Method to calculate the size of the list
+     * @return counter
+     */
     public int size()
     {
         int counter = 0;
@@ -45,6 +53,10 @@ public class PalletList {
         return counter;
     }
 
+    /**
+     * Method to return the list of pallets
+     * @return Full list
+     */
     public String printList()
     {
         String FullList = "List of all the pallets \n";

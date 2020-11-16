@@ -32,9 +32,10 @@ public class ShelfList {
         return counter;
     }
 
-    public ShelfList() {
+/*    public ShelfList()
+    {
         this.head = null;
-    }
+    }*/
 
 
     public Shelf findShelf(int number){

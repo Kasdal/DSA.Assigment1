@@ -7,6 +7,7 @@ public class Shelf {
     Shelf(int shelfN){
 
         shelfNumber = shelfN;
+        pallets = new PalletList();
 
     }
 

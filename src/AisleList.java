@@ -12,7 +12,11 @@ public class AisleList {
 
     }
 
-
+    /**
+     * Method to return Id of the aisle.
+     * @param Id
+     * @return null
+     */
     public Aisle aisleID(String Id)
     {
         if (head == null)
@@ -32,18 +36,25 @@ public class AisleList {
     }
 
 
-
+    /**
+     * Method to return the list of the aisles
+     * @return
+     */
     public String printList()
     {
-        String FullList = "List of all the aisles \n";
+        String fullList = "List of all the aisles \n";
         AisleNode temp = head;
         while(temp !=null){
-            FullList += temp.getContents();
+            fullList += temp.getContents();
             temp = temp.next;
         }
-        return FullList;
+        return fullList;
     }
 
+    /**
+     * Method to calculate the size of the list
+     * @return counter
+     */
     public int size()
     {
         AisleNode temp = head;
@@ -57,6 +68,10 @@ public class AisleList {
 
     }
 
+    /**
+     * Method to remove the aisle from the list.
+     * @param element
+     */
     public void removeAisleAt(int element)
     {
         AisleNode temp = head;
@@ -76,6 +91,22 @@ public class AisleList {
                 temp.next = temp.next.next;
             }
         }
+    }
+
+    /**
+     * Method to return the list of shelves.
+     * @return
+     */
+    public String printShelfList()
+    {
+        String shelfList = "per aisle ";
+        AisleNode temp = head;
+        while(temp != null)
+        {
+            shelfList += "aisle" +temp.getContents().aisleId + "\n\t" + temp.getContents().shelves.printList();
+            temp = temp.next;
+        }
+        return shelfList;
     }
 
 }

@@ -1,8 +1,16 @@
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.awt.*;
 import java.util.Scanner;
 import java.util.logging.Level;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
+
 
 public class Main {
 
@@ -11,9 +19,6 @@ public class Main {
      * Initialising variables in this class.
      */
     private Scanner input;
-    static AisleList aisles = new AisleList();
-    static PalletList pallets = new PalletList();
-    static ShelfList shelves = new ShelfList();
     static FloorList floors = new FloorList();
 
     /**
@@ -70,15 +75,23 @@ public class Main {
                          break;
                  }
                  break;
-//             case 9:
-//                 //();
-//                 break;
-//             case 10:
-//                 //();
-//                 break;
-//             case 11:
-//                 //();
-//                 break;
+             case 9:
+                 try {
+                     save();
+                 } catch (Exception e) {
+                     System.err.println("Error writing to file: " + e);
+                 }
+                 break;
+             case 10:
+                 try {
+                     load();
+                 } catch (Exception e) {
+                     System.err.println("Error reading from file: " + e);
+                 }
+                 break;
+             case 11:
+                 resetAll();
+                 break;
 //             case 12:
 //                 //();
 //                 break;
@@ -192,10 +205,12 @@ public class Main {
         Floor f = new Floor(level, floorID, security, temp);
         floors.add(f);
         System.out.println("Current list of floors are: \n" + floors.printList());
+        saveToFile();
     }
 
     public void addAisle(){
         Floor floorFound = findFloor();
+
         if(floorFound !=null)
         {
             System.out.println("Enter the length of the aisle by the number of pallets it can store.");
@@ -206,6 +221,7 @@ public class Main {
             Aisle newAisle = new Aisle(aisleID, aisleD,aisleW);
             floorFound.addaisle(newAisle);
             System.out.println(floorFound.aisles.printList());
+            saveToFile();
         }
 
     }
@@ -226,10 +242,19 @@ public class Main {
                 Shelf s = new Shelf(shelfNum);
                 aisleFound.addshelf(s);
                 System.out.println(aisleFound.shelves.printList());
+                saveToFile();
 
             }
 
         }
+
+    }
+
+
+
+    public void resetAll() {
+        floors.clearWarehouse();
+        saveToFile();
 
     }
 
@@ -253,6 +278,18 @@ public class Main {
             Pallet p = new Pallet(description, quantity, minTempR, maxTempR,posX, posY);
             shelfFound.addpallete(p);
             System.out.println(shelfFound.pallets.printList());
+            saveToFile();
+        }
+    }
+
+    /**
+     * Method to save the contents to a XML file.
+     */
+    public void saveToFile(){
+        try {
+            save();
+        } catch (Exception e) {
+            System.err.println("Error writing to file: " + e);
         }
     }
 
@@ -316,7 +353,14 @@ public Shelf findShelf(){
 
     public void listShelves()
     {
-        System.out.println("Current list of shelves are: \n" + floors + aisles + shelves.printList());
+        System.out.println("Current list of shelves are: \n");
+        FloorNode floorNode = floors.head;
+        while(floorNode != null){
+            AisleList aisleList = floorNode.getContents().aisles;
+            System.out.println(aisleList.printShelfList());
+        floorNode = floorNode.next;
+        }
+
     }
 
     /**
@@ -336,6 +380,23 @@ public Shelf findShelf(){
         else System.out.println("No Floors to delete");
         System.out.println("\n\n");
     }
+
+    public void load() throws Exception
+    {
+        XStream xstream = new XStream(new DomDriver());
+        ObjectInputStream is = xstream.createObjectInputStream(new FileReader("Warehouse.xml"));
+        floors = (FloorList) is.readObject();
+        is.close();
+    }
+
+    public void save() throws Exception
+    {
+        XStream xstream = new XStream(new DomDriver());
+        ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter("Warehouse.xml"));
+        out.writeObject(floors);
+        out.close();
+    }
+
 }
 
 

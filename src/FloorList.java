@@ -72,10 +72,6 @@ public class FloorList {
 
         }
 
-        //If the node we want to del is not the head
-        //need to write a loop while the next node is not equal to null
-        //check the nodes next if it equals what we want to del
-        //then make this nodes next equal to the next nodes next.
 
     }
 
@@ -100,6 +96,11 @@ public class FloorList {
         }
     }
 
+    public void clearSystemData() {
+        FloorNode floorNode = head;
+        head = null;
+    }
+
     public int size()
     {
         int counter = 0;
@@ -110,6 +111,10 @@ public class FloorList {
             temp = temp.next;
         }
         return counter;
+    }
+    public void clearWarehouse() {
+        FloorNode temp = head;
+        head = null;
     }
 
 }
