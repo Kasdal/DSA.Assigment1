@@ -69,14 +69,15 @@ public class Floor {
      * Method to add a aisle
      * @param a
      */
-    public void addaisle(Aisle a)
+    public void addAisle(Aisle a)
     {
         aisles.add(a);
     }
 
     /**
-     * Floor constructor.
+     * Floor constructor
      * @param fLevel
+     * @param floorId
      * @param fSec
      * @param fTemp
      */

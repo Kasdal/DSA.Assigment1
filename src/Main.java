@@ -222,7 +222,7 @@ public class Main {
             int aisleW = input.nextInt();
             String aisleID = floorFound.floorId + floorFound.aisles.size();
             Aisle newAisle = new Aisle(aisleID, aisleD,aisleW);
-            floorFound.addaisle(newAisle);
+            floorFound.addAisle(newAisle);
             System.out.println(floorFound.aisles.printList());
             saveToFile();
         }
