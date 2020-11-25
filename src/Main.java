@@ -1,15 +1,11 @@
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.sql.SQLOutput;
-import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.awt.*;
 import java.util.Scanner;
-import java.util.logging.Level;
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
 
 
 public class Main {
@@ -73,6 +69,18 @@ public class Main {
                          input.nextLine();
                          removeFloor();
                          break;
+/*                     case 2:
+                         input.nextLine();
+                         removeAisle();
+                         break;
+                     case 3:
+                         input.nextLine();
+                         removeShelf();
+                         break;
+                     case 4:
+                         input.nextLine();
+                         removePallet();
+                         break;*/
                  }
                  break;
              case 9:
@@ -126,12 +134,10 @@ public class Main {
         System.out.println("7) List all Shelves");
         System.out.println("8) Open Delete menu");
         System.out.println("----------------------------------");
-        System.out.println("9) Search for goods ");
-        System.out.println("11) ");
-        System.out.println("10) ");
+        System.out.println("9) Save the Warehouse ");
+        System.out.println("10) Load Warehouse data ");
+        System.out.println("11) Reset the facility ");
         System.out.println("----------------------------------");
-        System.out.println("12) Save the file.");
-        System.out.println("13) Load the file.");
         System.out.println("----------------------------------");
         System.out.println("0) Exit");
         System.out.print("==>> ");
@@ -144,7 +150,7 @@ public class Main {
             input.next();
             startMenu();
         }
-        if ((option >= 0) && (option <= 13))
+        if ((option >= 0) && (option <= 11))
         {
             return option;
         } else {
@@ -199,7 +205,6 @@ public class Main {
         String level = input.next();
         System.out.println("Please enter the floor Id");
         String floorID = Character.toString(input.next().charAt(0));
-        // Should check to make sure the floor name is unique.
         System.out.println("Please enter the floor security");
         String security = input.next();
         System.out.println("Enter the temperature range");
@@ -210,6 +215,9 @@ public class Main {
         saveToFile();
     }
 
+    /**
+     * Method to add an aisle.
+     */
     public void addAisle()
     {
         Floor floorFound = findFloor();
@@ -229,6 +237,9 @@ public class Main {
 
     }
 
+    /**
+     * Method to add a shelf
+     */
     public void addShelf()
     {
         Floor floorFound = findFloor();
@@ -254,7 +265,9 @@ public class Main {
     }
 
 
-
+    /**
+     * Resets the facility by calling clearWarehouse method which points floor head to null.
+     */
     public void resetAll()
     {
         floors.clearWarehouse();
@@ -262,7 +275,9 @@ public class Main {
 
     }
 
-
+    /**
+     * Method to add a pallet.
+     */
     public void addPallet()
     {
         Shelf shelfFound = findShelf();
@@ -285,6 +300,31 @@ public class Main {
             System.out.println(shelfFound.pallets.printList());
             saveToFile();
         }
+    }
+
+    public void removePallet(){
+        Shelf shelfFound = findShelf();
+        if(shelfFound !=null){
+        }
+    }
+
+    /**
+     * Method to remove the floor
+     * lists the floors, waits for user input
+     * prints the list of floors after the process
+     */
+    public void removeFloor()
+    {
+        if (floors.size() > 0)
+        {
+            listFloors();
+            System.out.println("Enter the floor index: ");
+            int index = input.nextInt();
+            floors.removeFloorAt(index);
+            System.out.println("Current list of floors are: \n" + floors.printList());
+        }
+        else System.out.println("No Floors to delete");
+        System.out.println("\n\n");
     }
 
     /**
@@ -328,7 +368,11 @@ public class Main {
     return aisleFound;
     }
 
-public Shelf findShelf()
+    /**
+     * Method to fins a shelf.
+     * @return shelfFound
+     */
+    public Shelf findShelf()
     {
     Aisle aisleFound = findAisle();
     if(aisleFound != null)
@@ -339,7 +383,7 @@ public Shelf findShelf()
         Shelf shelfFound = aisleFound.shelves.findShelf(shelfNum);
         return shelfFound;
     }
- return null;
+        return null;
     }
 
     /**
@@ -373,24 +417,9 @@ public Shelf findShelf()
     }
 
     /**
-     * Meothod to remove the floor
-     * lists the floors, waits for user input
-     * prints the list of floors after the process
+     * Loads the Warehouse.xml
+     * @throws Exception
      */
-    public void removeFloor()
-    {
-        if (floors.size() > 0)
-        {
-            listFloors();
-            System.out.println("Enter the floor index: ");
-            int index = input.nextInt();
-            floors.removeFloorAt(index);
-            System.out.println("Current list of floors are: \n" + floors.printList());
-        }
-        else System.out.println("No Floors to delete");
-        System.out.println("\n\n");
-    }
-
     public void load() throws Exception
     {
         XStream xstream = new XStream(new DomDriver());
@@ -399,6 +428,10 @@ public Shelf findShelf()
         is.close();
     }
 
+    /**
+     * Saves the current contents of the warehouse.
+     * @throws Exception
+     */
     public void save() throws Exception
     {
         XStream xstream = new XStream(new DomDriver());

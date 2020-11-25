@@ -1,34 +1,72 @@
 <object-stream>
   <FloorList>
     <head>
+      <next>
+        <contents>
+          <floorLevel>1</floorLevel>
+          <floorId>B</floorId>
+          <floorSecurity>Secure</floorSecurity>
+          <floorTemperature>20.0</floorTemperature>
+          <aisles>
+            <head>
+              <contents>
+                <aisleId>B0</aisleId>
+                <aisleWidth>4</aisleWidth>
+                <aisleDepth>4</aisleDepth>
+                <shelves>
+                  <head>
+                    <contents>
+                      <shelfNumber>1</shelfNumber>
+                      <pallets>
+                        <head>
+                          <contents>
+                            <description>Bananas</description>
+                            <itemQuantity>400</itemQuantity>
+                            <tempRangeMin>10.0</tempRangeMin>
+                            <tempRangeMax>20.0</tempRangeMax>
+                            <positionX>2</positionX>
+                            <positionY>2</positionY>
+                          </contents>
+                        </head>
+                      </pallets>
+                    </contents>
+                  </head>
+                </shelves>
+              </contents>
+            </head>
+          </aisles>
+        </contents>
+      </next>
       <contents>
-        <floorLevel>1</floorLevel>
-        <floorId>1</floorId>
-        <floorSecurity>1</floorSecurity>
-        <floorTemperature>1.0</floorTemperature>
+        <floorLevel>2</floorLevel>
+        <floorId>A</floorId>
+        <floorSecurity>Medium</floorSecurity>
+        <floorTemperature>10.0</floorTemperature>
         <aisles>
           <head>
-            <next>
-              <next>
-                <contents>
-                  <aisleId>10</aisleId>
-                  <aisleWidth>2</aisleWidth>
-                  <aisleDepth>2</aisleDepth>
-                  <shelves/>
-                </contents>
-              </next>
-              <contents>
-                <aisleId>11</aisleId>
-                <aisleWidth>2</aisleWidth>
-                <aisleDepth>2</aisleDepth>
-                <shelves/>
-              </contents>
-            </next>
             <contents>
-              <aisleId>12</aisleId>
-              <aisleWidth>3</aisleWidth>
-              <aisleDepth>3</aisleDepth>
-              <shelves/>
+              <aisleId>A0</aisleId>
+              <aisleWidth>5</aisleWidth>
+              <aisleDepth>5</aisleDepth>
+              <shelves>
+                <head>
+                  <contents>
+                    <shelfNumber>11</shelfNumber>
+                    <pallets>
+                      <head>
+                        <contents>
+                          <description>Stuff</description>
+                          <itemQuantity>20</itemQuantity>
+                          <tempRangeMin>20.0</tempRangeMin>
+                          <tempRangeMax>40.0</tempRangeMax>
+                          <positionX>1</positionX>
+                          <positionY>1</positionY>
+                        </contents>
+                      </head>
+                    </pallets>
+                  </contents>
+                </head>
+              </shelves>
             </contents>
           </head>
         </aisles>

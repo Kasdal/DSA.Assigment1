@@ -8,7 +8,7 @@ public class Floor {
     String floorSecurity;
     double floorTemperature;
     AisleList aisles;
-// Need to add list of aisles.
+
 
     /**
      * Gets the floor level
@@ -91,7 +91,9 @@ public class Floor {
     }
 
 
-
+    /**
+     * @return Floor details as a string.
+     */
     public String toString()
     {
         return "The Floor details are Floor level: " + floorLevel + ", Floor Security: " + floorSecurity + ", Floor Temperature:" + floorTemperature + "\n";

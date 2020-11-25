@@ -87,6 +87,10 @@ public class Aisle {
         shelves = new ShelfList();
     }
 
+    /**
+     * Aisle details to a string.
+     * @return
+     */
     public String toString()
     {
 

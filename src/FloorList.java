@@ -1,6 +1,12 @@
 public class FloorList {
 
     FloorNode head = null;
+
+
+    /**
+     * Method to add a floor.
+     * @param f
+     */
     public void add(Floor f)
     {
         FloorNode temp = new FloorNode();
@@ -10,6 +16,10 @@ public class FloorList {
         head = temp;
     }
 
+    /**
+     * Method to return the list of all the floors
+     * @return Full list
+     */
     public String printList()
     {
         String FullList = "List of all the floors \n";
@@ -23,6 +33,11 @@ public class FloorList {
         return FullList;
     }
 
+    /**
+     * Method to find a floor by taking in passed input id of the floor.
+     * @param id
+     * @return
+     */
     public Floor findFloorById(String id)
     {
         FloorNode temp = head;
@@ -53,7 +68,9 @@ public class FloorList {
         return aisleList;
     }
 
-    public void removeFloor(Floor floorToDel)
+
+    //Not used.
+/*    public void removeFloor(Floor floorToDel)
     {
         boolean done = false;
         FloorNode temp = head;
@@ -75,8 +92,12 @@ public class FloorList {
         }
 
 
-    }
+    }*/
 
+    /**
+     * Removing the floor
+     * @param element
+     */
     public void removeFloorAt(int element)
     {
         FloorNode temp = head;
@@ -97,12 +118,10 @@ public class FloorList {
         }
     }
 
-    public void clearSystemData()
-    {
-        FloorNode floorNode = head;
-        head = null;
-    }
-
+    /**
+     * Method to calculate the size of the list
+     * @return counter
+     */
     public int size()
     {
         int counter = 0;
@@ -114,6 +133,11 @@ public class FloorList {
         }
         return counter;
     }
+
+
+    /**
+     * Method to reset the warehouse contents by pointing the FloorNode to null.
+     */
     public void clearWarehouse()
     {
         FloorNode temp = head;

@@ -1,6 +1,11 @@
 public class ShelfList {
 
     ShelfNode head;
+
+    /**
+     * Method to add shelf.
+     * @param s
+     */
     public void add(Shelf s){
 
         ShelfNode temp = new ShelfNode();
@@ -8,8 +13,12 @@ public class ShelfList {
         temp.setContents(s);
         temp.next = head;
         head = temp;
-
     }
+
+    /**
+     * Method to return the list of all shelves
+     * @return Full list
+     */
     public String printList(){
         String FullList = "List of all the shelves \n";
         ShelfNode temp = head;
@@ -20,6 +29,10 @@ public class ShelfList {
         return FullList;
     }
 
+    /**
+     * Method that returns the size of the shelf list.
+     * @return counter
+     */
     public int size()
     {
         int counter = 0;
@@ -32,12 +45,11 @@ public class ShelfList {
         return counter;
     }
 
-/*    public ShelfList()
-    {
-        this.head = null;
-    }*/
-
-
+    /**
+     * Method to find a shelf by a given number passed as a parameter.
+     * @param number
+     * @return
+     */
     public Shelf findShelf(int number){
         if (head == null)
         {

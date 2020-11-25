@@ -14,18 +14,18 @@ public class PalletList {
 
     /**
      * Method to remove the pallet from the list
-     * @param element
+     * @param position
      */
-    public void removePalletAt(int element)
+    public void removePalletAt(int position)
     {
         PalletNode temp = head;
         int i = 0;
-        if(element == 0)
+        if(position == 0)
         {
             head = temp.next;
         }
         else {
-            while (i < element - 1 && temp != null)
+            while (i < position - 1 && temp != null)
             {
                 temp = temp.next;
                 i++;

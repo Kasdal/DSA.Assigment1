@@ -19,7 +19,9 @@ public class Shelf {
         pallets.add(p);
     }
 
-
+    /**
+     * @return Shelf details as a string.
+     */
     public String toString(){
 
         return "The Shelf details are Shelf: " + shelfNumber;
